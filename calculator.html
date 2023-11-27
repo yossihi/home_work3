@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+    <div>
+        <input id="result" class="screen"><br>
+        <input type="text" class="screen">
+    </div>
+    <br>
+    <div>
+        <button class="btn" id="9" onclick="addDigit(9)">9</button>
+        <button class="btn" id="8" onclick="addDigit(8)">8</button>
+        <button class="btn" id="7" onclick="addDigit(7)">7</button>
+        <button onclick="operator('+')" class="btn" id="plus">+</button>
+        <button class="btn" onclick="operator('^')">^</button><br>
+        <button class="btn" id="6" onclick="addDigit(6)">6</button>
+        <button class="btn" id="5" onclick="addDigit(5)">5</button>
+        <button class="btn" id="4" onclick="addDigit(4)">4</button>
+        <button onclick="operator('*')" class="btn" id="boubl">*</button>
+        <button class="btn" onclick="squer = true">√</button><br>
+        <button class="btn" id="3" onclick="addDigit(3)">3</button>
+        <button class="btn" id="2" onclick="addDigit(2)">2</button>
+        <button class="btn" id="1" onclick="addDigit(1)">1</button>
+        <button onclick="operator('/')" class="btn" id="divide">/</button>
+        <button class="btn" onclick="memorys()">M</button><br>
+        <button class="btn" onclick="clearr()">c</button>
+        <button class="btn" id="0" onclick="addDigit(0)">0</button>
+        <button class="btn" id="equal" onclick="equal()">=</button>
+        <button onclick="operator('-')" class="btn" id="minus">-</button>
+    </div>
+    </div>
+    <script>
+
+        let current_val = 0
+        let current_op = ""
+        let squer = false
+        let memory = 0
+
+        function addDigit(digit) {
+            result.value = result.value + digit
+        }
+
+        function clearr() {
+            result.value = ""
+        }
+
+        function memorys() {
+            memory = result.value
+            clearr()
+        }
+
+        function operator(op) {
+            if (current_op == "") {
+                current_op = op
+                current_val = result.value
+                clearr()
+            } else {
+                current_val = clacul()
+                current_op = op
+                clearr()
+            }
+        }
+
+
+        function clacul() {
+            if (current_op == "+") {
+                return +current_val + +result.value
+            } else {
+                if (current_op == "*") {
+                    return +current_val * +result.value
+                } else {
+                    if (current_op == "/") {
+                        return +current_val / +result.value
+                    } else {
+                        if (current_op == "-") {
+                            return +current_val - +result.value
+                        }else{
+                            if (current_op == "^") {
+                                return Math.pow(current_val, result.value)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function equal() {
+            if (squer == false) {
+                result.value = clacul()
+                current_op = ""
+                current_val = 0
+            }else{
+                current_val = +result.value
+                result.value = Math.sqrt(current_val)
+            }
+        }
+    </script>
+</body>
+
+</html>

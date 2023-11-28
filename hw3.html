@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <a href="calculator.html" style="border: 1px solid black; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: black;">calculator</a>
+        <button onclick="myName()">
+            my name
+        </button>
+        <button onclick="myNamer()">
+            my name 20 times
+        </button>
+
+        <button onclick="datePrinter()">
+            print the date
+        </button>
+
+        <button onclick="backCounter()">
+            back counter
+        </button>
+
+        <button onclick="sumNum()">
+            sum numbers
+        </button>
+
+        <input type="text" id="first_number">
+        <input type="text" id="second_number">
+        <input type="text" id="result">
+
+        <button id="plus">+</button>
+        <button id="doubl">*</button>
+        <button id="divide">/</button>
+        <button onclick="minus">-</button>
+    </div>
+    <script>
+        function minus() {
+            result.value = first_number - second_number
+        }
+    </script>
+    <script>
+        let n1 = 10, n2 = 2, n3 = 3, n4 = 4
+
+        if (n1 > n2 && n1 > n3 && n1 > n4) {
+            console.log(`the bigger number is ${n1}`);
+        } else {
+            if (n2 > n3 && n2 > n4) {
+                console.log(n2);
+            }
+            else {
+                if (n3 > n4) {
+                    console.log(n3);
+                } else {
+                    console.log(n4);
+                }
+            }
+        }
+
+    </script>
+
+
+
+
+    <script>
+        let m1 = 100, m2 = 20, m3 = 300, m4 = 400
+        temp = m1 > m2 ? m1 : m2
+        temp = temp > m3 ? temp : m3
+        console.log(temp > m4 ? temp : m4);
+
+    </script>
+
+    <script>
+        let index = 0
+        while (index < 20) {
+            if (index % 15 == 0) {
+                console.log("fizzbuzz");
+            } else {
+                if (index % 5 == 0) {
+                    console.log("buzz");
+                } else {
+                    console.log(index % 3 == 0 ? "fizz" : index);
+                }
+            }
+            index++
+        }
+
+        function myName(params) {
+            console.log("yossi");
+        }
+
+        function myNamer(params) {
+            for (let i = 0; i < 20; i++) {
+                console.log("yossi");
+            }
+        }
+
+        function theBiger(num1, num2) {
+            console.log(num1 > num2 ? num1 : num2);
+        }
+
+        function datePrinter(params) {
+            console.log(Date());
+        }
+
+        function backCounter() {
+            for (let index = 10; index > 0; index--) {
+                console.log(index);
+
+            }
+        }
+
+        function sumNum() {
+            let last = 0
+            for (let index = 10; index > 0; index--) {
+                last += index
+            } console.log(last);
+        }
+
+        
+    </script>
+</body>
+
+</html>
